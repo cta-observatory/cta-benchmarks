@@ -1,6 +1,12 @@
 # cta-benchmarks
 Collection of benchmarking code for cta
 
+Note that currently these benchmarks require some input data that is
+not provided in the repository.  *No data files should be included in
+this repo to avoid causing its size to increase rapidly* instead, raw
+data files will be provided on a dedicated server, and outputs should
+be written locally.
+
 # Setup for automatic running of all benchmarks:
 
 This software uses the Anaconda python distribution, which must be
