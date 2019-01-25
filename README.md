@@ -1,10 +1,10 @@
 # cta-benchmarks
 Collection of benchmarking code for cta
 
-# Setup
+# Setup for automatic running of all benchmarks:
 
 This software uses the Anaconda python distribution, which must be
-installed first.
+installed first.  
 
 
 ## 1. Create benchmark environment:
@@ -37,4 +37,8 @@ This will run all notebooks in each of the following directories in order:
 * Summaries/
 
 The output will be in a directory called `BUILD/`
+
+
+You can of course run each benchmark individually using `jupyter notebook` or `jupyter lab` (the latter requires that you run `conda install jupyter-lab` first)
+
 
