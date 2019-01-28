@@ -19,15 +19,15 @@ installed first.
 conda env create --file environment.yml
 ```
 
-This will install ctapipe and dependencies needed to run the benchmarks. This only needs to be done once. 
+This will install ctapipe and all dependencies needed to run the benchmarks. This only needs to be done once. 
 
-## 2. Change to the benchmark 
+## 2. Change to the benchmark environment
 
 ```sh
 conda activate cta-benchmarks
 ```
 
-This must be done every time you open a new terminal
+This must be done every time you open a new terminal and want to run the benchmarks.
 
 
 ## 3. Run the benchmarks:
