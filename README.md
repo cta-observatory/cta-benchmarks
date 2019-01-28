@@ -7,11 +7,18 @@ this repo to avoid causing its size to increase rapidly* instead, raw
 data files will be provided on a dedicated server, and outputs should
 be written locally.
 
+# General Structure
+
+* **Preparation**: notebooks that generate testing data (e.g. process raw data and produce data products that are needed as input for various benchmarks)
+* **Benchmarks**: notebooks that perform a certain benchmark. These should produce a final plot or value that can be recorded using the storage functionality of *papermill*
+* **Summaries**: notebooks that collect the final results from multiple *Benchmarks* and present an executive summary of the results. 
+
 # Guidelines
 
 General:
 * Do not commit notebooks to this repo that contain output (please strip the output first). This makes the repo size stay small and makes looking at differences much easier.  The outputs will eventually be included automatically in the documentation, not in the repo. 
 * Do not commit input or output data files to this repo (see above)
+* separate the production of benchmark data (e.g. DL1, DL2, or DL3 files) from the benchmarks themselves.  The production of data files should be in notebooks in the `Preparation/` directory (data prep). 
 
 From [this Netflix post](https://medium.com/netflix-techblog/scheduling-notebooks-348e6c14cfd6):
 
