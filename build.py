@@ -53,7 +53,9 @@ if __name__ == '__main__':
     logging.info("Build directory:", build_dir.resolve())
     
     dirs_to_build = ['Preparation', 'Benchmarks', 'Summaries']
-    workflow_stages = {x: list(Path(f'./{x}').rglob("*.ipynb"))
+
+    workflow_stages = {x: [path for path in Path(f'./{x}').rglob("*.ipynb")
+                           if '.ipynb_checkpoints' not in path.parts]
                        for x in dirs_to_build}
     print_notebooks_to_build(workflow_stages)
 
