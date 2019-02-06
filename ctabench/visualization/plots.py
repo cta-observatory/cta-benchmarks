@@ -9,7 +9,20 @@ __all__ = [
 
 def plot_binned_mean(x, y, ax=None, errorbar=True, bins=20, **kwargs):
     """
-    Plot binned statistics
+    Plot binned mean with errorbars corresponding to a 68 percentile
+
+    Parameters
+    ----------
+    x: `numpy.ndarray`
+    y: `numpy.ndarray`
+    ax: `matplotlib.pyplot.axes`
+    errorbar: bool
+    bins: bins for `scipy.stats.binned_statistic`
+    kwargs: kwargs for `matplotlib.pyplot.scatter`
+
+    Returns
+    -------
+    `matplotlib.pyplot.axes`
     """
 
     ax = plt.gca() if ax is None else ax

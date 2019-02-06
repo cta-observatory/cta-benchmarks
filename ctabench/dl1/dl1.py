@@ -60,18 +60,3 @@ def signal_calibrated_image(calibrated_event, tel_id, channel=0):
     signal_pixels = true_pe_cleaning(pe_image)
     image = calibrated_event.dl1.tel[tel_id].image[channel]
     return np.ma.array(image, mask=~signal_pixels)
-
-
-def difference_calibrated_true_pe(calibrated_event, tel_id, channel=0):
-    """
-
-    Parameters
-    ----------
-    calibrated_event
-    tel_id
-    channel
-
-    Returns
-    -------
-
-    """
