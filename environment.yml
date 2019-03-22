@@ -12,3 +12,4 @@ dependencies:
   - papermill
   - seaborn
   - nbstripout
+  - h5py
