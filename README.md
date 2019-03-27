@@ -1,6 +1,8 @@
 # cta-benchmarks
 Collection of benchmarking code for cta
 
+[![Build Status](https://travis-ci.org/cta-observatory/cta-benchmarks.svg?branch=master)](https://travis-ci.org/cta-observatory/cta-benchmarks)
+
 Note that currently these benchmarks require some input data that is
 not provided in the repository.  *No data files should be included in
 this repo to avoid causing its size to increase rapidly* instead, raw
