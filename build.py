@@ -1,6 +1,7 @@
 import papermill as pm
 from pathlib import Path
 import logging
+import subprocess
 
 logger = logging.getLogger()
 
@@ -42,6 +43,28 @@ def build_notebooks(stage, notebook_paths, build_dir):
             str(output_path),
             #parameters = dict(alpha=0.6, ratio=0.1)
         )
+
+def convert_notebooks(stage, notebook_paths, build_dir, fmt='html'):
+    """
+    Convert notebooks into another format using nbconvert
+
+    Parameters
+    ----------
+    stage: str
+        name of stage (just for identification purposes)
+    notebook_paths: List[Path]
+        list of paths to notebooks
+    build_dir: Path
+        path to top-level of output directory
+    fmt: str
+        output format supported by nbconvert
+    """
+    logger.info("Converting notebooks in stage {} into {}".format(stage, fmt))
+    for path in notebook_paths:
+        cmd = "jupyter nbconvert --to {} {}".format(fmt, build_dir/path)
+        subprocess.call(cmd, stderr=subprocess.STDOUT, shell=True)
+        logger.debug("Converter %s", path.parents[0])
+
     
             
 if __name__ == '__main__':
@@ -61,3 +84,4 @@ if __name__ == '__main__':
 
     for stage, paths in workflow_stages.items():
         build_notebooks(stage, paths, build_dir)
+        convert_notebooks(stage, paths, build_dir)
