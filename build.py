@@ -38,11 +38,14 @@ def build_notebooks(stage, notebook_paths, build_dir):
         output_path = build_dir/path
         output_path.parents[0].mkdir(parents=True, exist_ok=True)
         logger.debug("Created %s", path.parents[0])
-        pm.execute_notebook(
-            str(path),
-            str(output_path),
-            #parameters = dict(alpha=0.6, ratio=0.1)
-        )
+        try:
+            pm.execute_notebook(
+                str(path),
+                str(output_path),
+                #parameters = dict(alpha=0.6, ratio=0.1)
+            )
+        except:
+            logging.debug("Notebook {} not run".format(path))
 
 def convert_notebooks(stage, notebook_paths, build_dir, fmt='html'):
     """
@@ -62,17 +65,25 @@ def convert_notebooks(stage, notebook_paths, build_dir, fmt='html'):
     logger.info("Converting notebooks in stage {} into {}".format(stage, fmt))
     for path in notebook_paths:
         cmd = "jupyter nbconvert --to {} {}".format(fmt, build_dir/path)
-        subprocess.call(cmd, stderr=subprocess.STDOUT, shell=True)
-        logger.debug("Converter %s", path.parents[0])
+        try:
+            subprocess.call(cmd, stderr=subprocess.STDOUT, shell=True)
+            logger.info("Converted {} in {}".format(path.parents[0], fmt))
+        except:
+            logger.debug(("{} not converted in {}".format(path.parents[0], fmt)))
 
     
             
 if __name__ == '__main__':
 
-    logging.basicConfig(level=logging.DEBUG)
-    
     build_dir = Path("BUILD")
     build_dir.mkdir(exist_ok=True)
+
+    logging_filename = build_dir/"logs.txt"
+    logging.basicConfig(level=logging.DEBUG,
+                        filename=logging_filename,
+                        filemode="w",
+                        )
+
     logging.info("Build directory:", build_dir.resolve())
     
     dirs_to_build = ['Preparation', 'Benchmarks', 'Summaries']
