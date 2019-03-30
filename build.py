@@ -2,6 +2,16 @@ import papermill as pm
 from pathlib import Path
 import logging
 import subprocess
+import yaml
+import argparse
+
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("-p", "--parameters_file", action="store",
+                    help="Path to the YAML parameters file")
+args = parser.parse_args()
+
 
 logger = logging.getLogger()
 
@@ -20,7 +30,7 @@ def print_notebooks_to_build(workflow_stages):
         for nb in files:
             print(" - ", nb)
 
-def build_notebooks(stage, notebook_paths, build_dir):
+def build_notebooks(stage, notebook_paths, build_dir, parameters={}):
     """ 
     Build a list of notebooks
 
@@ -42,7 +52,7 @@ def build_notebooks(stage, notebook_paths, build_dir):
             pm.execute_notebook(
                 str(path),
                 str(output_path),
-                #parameters = dict(alpha=0.6, ratio=0.1)
+                parameters = parameters,
             )
         except:
             logging.debug("Notebook {} not run".format(path))
@@ -71,7 +81,24 @@ def convert_notebooks(stage, notebook_paths, build_dir, fmt='html'):
         except:
             logger.debug(("{} not converted in {}".format(path.parents[0], fmt)))
 
-    
+
+def read_parameters_file(filename):
+    """
+    Read a YAML file with parameters for the notebooks
+
+    Parameters
+    ----------
+    filename: str
+        path to the file
+
+    Returns
+    -------
+    dictionnary of the parameters
+    """
+    with open(filename) as file:
+        parameters = yaml.load(file)
+    return parameters
+
             
 if __name__ == '__main__':
 
@@ -93,6 +120,11 @@ if __name__ == '__main__':
                        for x in dirs_to_build}
     print_notebooks_to_build(workflow_stages)
 
+    if args.parameters_file is not None:
+        parameters = read_parameters_file(args.parameters_file)
+    else:
+        parameters = {}
+
     for stage, paths in workflow_stages.items():
-        build_notebooks(stage, paths, build_dir)
+        build_notebooks(stage, paths, build_dir, parameters=parameters)
         convert_notebooks(stage, paths, build_dir)
