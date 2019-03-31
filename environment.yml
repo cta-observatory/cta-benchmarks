@@ -13,3 +13,8 @@ dependencies:
   - seaborn
   - nbstripout
   - h5py
+  - eventio=0.18
+  - pip
+
+  - pip:
+      - git+https://github.com/cta-observatory/ctapipe/
