@@ -13,3 +13,6 @@ dependencies:
   - seaborn
   - nbstripout
   - eventio=0.18
+
+pip:
+  - https://github.com/cta-observatory/ctapipe/archive/master.zip
