@@ -12,6 +12,7 @@ dependencies:
   - papermill
   - seaborn
   - nbstripout
+  - h5py
   - eventio=0.18
   - pip
 
