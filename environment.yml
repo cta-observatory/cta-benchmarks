@@ -12,3 +12,4 @@ dependencies:
   - papermill
   - seaborn
   - nbstripout
+  - eventio=0.18

@@ -1,0 +1,7 @@
+# directories
+input_dir: 'input_data'
+output_dir: 'output_data'
+
+# files
+gamma_diffuse: 'gamma_40deg_0deg_run102___cta-prod3-lapalma3-2147m-LaPalma_cone10.simtel.gz'
+
