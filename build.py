@@ -8,7 +8,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-p", "--parameters_file", action="store",
+parser.add_argument("-f", "--parameters_file", action="store",
                     help="Path to the YAML parameters file")
 args = parser.parse_args()
 
