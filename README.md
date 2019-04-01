@@ -3,11 +3,10 @@ Collection of benchmarking code for cta
 
 [![Build Status](https://travis-ci.org/cta-observatory/cta-benchmarks.svg?branch=master)](https://travis-ci.org/cta-observatory/cta-benchmarks)
 
-Note that currently these benchmarks require some input data that is
+Note that the benchmarks require some input data that is
 not provided in the repository.  *No data files should be included in
 this repo to avoid causing its size to increase rapidly* instead, raw
-data files will be provided on a dedicated server, and outputs should
-be written locally.
+data files are provided on a dedicated server.
 
 # General Structure
 
@@ -27,6 +26,34 @@ From [this Netflix post](https://medium.com/netflix-techblog/scheduling-notebook
 * **Low Branching Factor**: Keep your notebooks fairly linear. If you have many conditionals or potential execution paths, it becomes hard to ensure end-to-end tests are covering the desired use cases well.
 * **Library Functions in Libraries**: If you do end up with complex functions which you might reuse or refactor independently, these are good candidates for a coding library rather than in a notebook. Providing your notebooks in git repositories means you can position shared unit-tested code in that same repository as your notebooks, rather than trying to unit test complex notebooks.
 * **Short and Simple is Better**: A notebook which generates lots of useful outputs and visuals with a few simple cells is better than a ten page manual. This makes your notebooks more shareable, understandable, and maintainable.
+
+## Submit a benchmark
+
+- You may open an issue to discuss the benchmark you want to create before
+- Add your notebook to the relevant folder
+- Use the standard input parameters (see below)
+- Strip out the outputs : `nbstripout your-awesome-benchmark.ipynb`
+- Check that your notebook in running well with `papermill your-awesome-benchmark.ipynb awesome-output.ipynb -f yourparameterfile.yml` and check that `awesome-output.ipynb` looks like what you expect
+- Make a pull request
+
+Note: create `yourparameterfile.yml` by copying and modifying `config/parameters_jenkins.yml` to your local data paths.
+
+## Parameterise your notebook
+
+In `cta-benchmarks` with use `papermill` to run parameterized notebooks.
+When you create a benchmark, tag a cell with `parameters` (see the [papermill page](https://github.com/nteract/papermill)).
+The parameters are global and common to all benchmarks.
+Especially:
+- the path to raw data directory is given by `input_dir`
+- the path to the prepared data (output of the notebooks in `Preparation`) is given by `prepared_data_dir`
+
+
+
+## Available data on the running server
+(see `config/parameters_jenkins.yml`)
+
+- gamma_diffuse: 'gamma_40deg_0deg_run102___cta-prod3-lapalma3-2147m-LaPalma_cone10.simtel.gz'
+
 
 # Setup for automatic running of all benchmarks:
 
