@@ -40,9 +40,9 @@ Note: create `yourparameterfile.yml` by copying and modifying `config/parameters
 
 ## Parameterise your notebook
 
-In `cta-benchmarks` with use `papermill` to run parameterized notebooks.
-When you create a benchmark, tag a cell with `parameters` (see the [papermill page](https://github.com/nteract/papermill)).
-The parameters are global and common to all benchmarks.
+In `cta-benchmarks` we use `papermill` to run parameterized notebooks.    
+When you propose a benchmark, put all the parameters in one unique cell and tag it as `parameters` (see the [papermill page](https://github.com/nteract/papermill)).    
+The parameters are global and common to all benchmarks.    
 Especially:
 - the path to raw data directory is given by `input_dir`
 - the path to the prepared data (output of the notebooks in `Preparation`) is given by `prepared_data_dir`
