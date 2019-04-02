@@ -6,7 +6,7 @@ import setuptools
 import ctabench
 
 setuptools.setup(name='ctabench',
-      version=0.1,
+      version=ctabench.__version__,
       description="library for CTA benchmarks",
       # these should be minimum list of what is needed to run
       packages=setuptools.find_packages(),
