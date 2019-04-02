@@ -96,7 +96,7 @@ def read_parameters_file(filename):
     dictionnary of the parameters
     """
     with open(filename) as file:
-        parameters = yaml.load(file)
+        parameters = yaml.load(file, Loader=yaml.SafeLoader)
     return parameters
 
             
