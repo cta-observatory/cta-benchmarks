@@ -13,27 +13,27 @@
 
 # Data Structure info:
 
--prepared_data: 
-    -output:
-      **-event_cam: (data will be splited by camera type)**
-            -event_gamma_diffuse.npz (storage splitted only by event)
-            -LST_parameters_gamma_diffuse.npz (storage with only LST images)
-            -Nectar_parameters_gamma_diffuse.npz (storage with only Nectar images)
-            -Flash_parameters_gamma_diffuse.npz (storage with only Flash images)
-            -LSCT_parameters_gamma_diffuse.npz (storage with only SCT images)
-      **-event_cam_energybin: (data will be splitted by the energy range)**
-            -first energy bin:
-                -LST_parameters_gamma_diffuse.npz (storage with only LST images)
-                -Nectar_parameters_gamma_diffuse.npz (storage with only Nectar images)
-                -Flash_parameters_gamma_diffuse.npz (storage with only Flash images)
-                -LSCT_parameters_gamma_diffuse.npz (storage with only SCT images)
+->prepared_data: 
+    ->output:
+      **->event_cam: (data will be splited by camera type)**
+            ->event_gamma_diffuse.npz (storage splitted only by event)
+            ->LST_parameters_gamma_diffuse.npz (storage with only LST images)
+            ->Nectar_parameters_gamma_diffuse.npz (storage with only Nectar images)
+            ->Flash_parameters_gamma_diffuse.npz (storage with only Flash images)
+            ->LSCT_parameters_gamma_diffuse.npz (storage with only SCT images)
+      **->event_cam_energybin: (data will be splitted by the energy range)**
+            ->first energy bin:
+                ->LST_parameters_gamma_diffuse.npz (storage with only LST images)
+                ->Nectar_parameters_gamma_diffuse.npz (storage with only Nectar images)
+                ->Flash_parameters_gamma_diffuse.npz (storage with only Flash images)
+                ->LSCT_parameters_gamma_diffuse.npz (storage with only SCT images)
             .
             .
             .
             .
-            -last energy bin:
-                -LST_parameters_gamma_diffuse.npz (storage with only LST images)
-                -Nectar_parameters_gamma_diffuse.npz (storage with only Nectar images)
-                -Flash_parameters_gamma_diffuse.npz (storage with only Flash images)
-                -LSCT_parameters_gamma_diffuse.npz (storage with only SCT images)
+            ->last energy bin:
+                ->LST_parameters_gamma_diffuse.npz (storage with only LST images)
+                ->Nectar_parameters_gamma_diffuse.npz (storage with only Nectar images)
+                ->Flash_parameters_gamma_diffuse.npz (storage with only Flash images)
+                ->LSCT_parameters_gamma_diffuse.npz (storage with only SCT images)
         
