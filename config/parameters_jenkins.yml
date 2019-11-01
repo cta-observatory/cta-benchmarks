@@ -1,5 +1,5 @@
 # directories
-input_dir: './'
+input_dir: 'input_data'
 prepared_data_dir: 'prepared_data'
 
 # files
