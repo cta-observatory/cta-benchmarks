@@ -7,7 +7,7 @@ channels:
   - cta-observatory
   - conda-forge
 dependencies:
-  - ctapipe=0.7
+  - ctapipe=0.7.0
   - jupyter
   - papermill
   - seaborn
