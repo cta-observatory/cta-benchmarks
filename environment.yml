@@ -7,14 +7,9 @@ channels:
   - cta-observatory
   - conda-forge
 dependencies:
-  - ctapipe
+  - ctapipe=0.7.0
   - jupyter
   - papermill
   - seaborn
   - nbstripout
   - h5py
-  - eventio=0.18
-  - pip
-
-  - pip:
-      - git+https://github.com/cta-observatory/ctapipe/
