@@ -4,7 +4,7 @@ __all__ = [
     'tel_to_impact_point_distance'
 ]
 
-def tel_to_impact_point_distance(event, tel_id):
+def tel_to_impact_point_distance(event, subarray, tel_id):
     """
     Return the distance from the shower impact point to the telescope.
 
@@ -17,6 +17,5 @@ def tel_to_impact_point_distance(event, tel_id):
     -------
     `astropy.units.Quantity`
     """
-    tel_index = event.inst.subarray.tel_indices[tel_id]
-    return np.sqrt((event.mc.core_x - event.inst.subarray.tel_coords.x[tel_index]) ** 2
-                   + (event.mc.core_y - event.inst.subarray.tel_coords.y[tel_index]) ** 2)
+    return np.sqrt((event.mc.core_x - subarray.positions[tel_id][0]) ** 2
+                   + (event.mc.core_y - subarray.positions[tel_id][1]) ** 2)
