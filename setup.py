@@ -10,7 +10,7 @@ setuptools.setup(name='ctabench',
       description="library for CTA benchmarks",
       # these should be minimum list of what is needed to run
       packages=setuptools.find_packages(),
-      install_requires=['ctapipe=0.7.0',
+      install_requires=['ctapipe==0.8.0',
                         'seaborn',
                         'pandas',
                         ],
