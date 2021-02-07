@@ -13,3 +13,8 @@ dependencies:
   - seaborn
   - nbstripout
   - h5py
+  - pip
+
+pip:
+  - https://github.com/cta-observatory/cta-lstchain/archive/v0.1.0.zip
+  - ctaplot >= 0.4.1
