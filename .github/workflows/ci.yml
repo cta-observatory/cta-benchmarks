@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.7, 3.8]
-        install-method: ["pip", "conda"]
+        install-method: ["conda"]
 
     steps:
       - uses: actions/checkout@v2
