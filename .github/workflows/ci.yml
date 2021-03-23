@@ -43,5 +43,5 @@ jobs:
             source $CONDA/etc/profile.d/conda.sh
             conda activate cta-benchmarks;
           fi
-          pytest --cov=ctapipe --cov-report=xml
+          # pytest --cov-report=xml
           
