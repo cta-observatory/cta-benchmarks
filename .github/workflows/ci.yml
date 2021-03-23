@@ -45,3 +45,4 @@ jobs:
           fi
           # pytest --cov-report=xml
           .github/execute.sh
+          .github/build_index.sh
