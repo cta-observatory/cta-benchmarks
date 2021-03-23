@@ -1,3 +1,3 @@
 pip install mako
 
-python build_index.py
+python .github/build_index.py Benchmarks/DL1
