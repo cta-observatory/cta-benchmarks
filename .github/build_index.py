@@ -32,7 +32,8 @@ def main():
               if fname not in EXCLUDED and fname.endswith('.html')]
     header = (args.header if args.header else os.path.basename(args.directory))
     template = Template(INDEX_TEMPLATE).render(names=fnames, header=header)
-    with open('index.html', 'w') as file:
+    os.makedirs('docs', exist_ok=True)
+    with open('docs/index.html', 'w') as file:
         file.write(template)
     print(template)
 
