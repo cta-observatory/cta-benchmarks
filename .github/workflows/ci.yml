@@ -44,4 +44,4 @@ jobs:
             conda activate cta-benchmarks;
           fi
           # pytest --cov-report=xml
-          
+          .github/execute.sh
