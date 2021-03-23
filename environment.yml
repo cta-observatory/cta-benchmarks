@@ -9,7 +9,8 @@ channels:
 dependencies:
   - numpy
   - matplotlib
-  - ctapipe=0.7.0
+  - astropy>=4
+  - ctapipe=0.10.5
   - jupyter
   - papermill
   - seaborn
