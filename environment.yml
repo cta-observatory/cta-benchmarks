@@ -7,6 +7,8 @@ channels:
   - cta-observatory
   - conda-forge
 dependencies:
+  - numpy
+  - matplotlib
   - ctapipe=0.7.0
   - jupyter
   - papermill
