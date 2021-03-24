@@ -45,10 +45,10 @@ jobs:
           fi
           # pytest --cov-report=xml
           .github/execute.sh
+          .github/build_index.sh
           
       - name: Deploy to gihub pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           BRANCH: gh-pages
           FOLDER: docs/
-          .github/build_index.sh
