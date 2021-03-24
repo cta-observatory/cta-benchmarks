@@ -28,7 +28,7 @@ def main():
     parser.add_argument("directory")
     parser.add_argument("--header")
     args = parser.parse_args()
-    fnames = [os.path.join(args.directory, fname) for fname in sorted(os.listdir(args.directory))
+    fnames = [fname for fname in sorted(os.listdir(args.directory))
               if fname not in EXCLUDED and fname.endswith('.html')]
     header = (args.header if args.header else os.path.basename(args.directory))
     template = Template(INDEX_TEMPLATE).render(names=fnames, header=header)
