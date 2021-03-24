@@ -35,8 +35,6 @@ def main():
     os.makedirs('docs', exist_ok=True)
     with open('docs/index.html', 'w') as file:
         file.write(template)
-    print(template)
-
 
 if __name__ == '__main__':
     main()

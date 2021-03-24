@@ -44,7 +44,9 @@ jobs:
             conda activate cta-benchmarks;
           fi
           # pytest --cov-report=xml
-          .github/execute.sh
+          # Execute all the notebook and convert them to html in BUILD
+          python build.py
+          # Build the index html page in docs
           .github/build_index.sh
           echo `ls docs/`
           
