@@ -23,6 +23,17 @@ import argparse
 from mako.template import Template
 
 
+default_header = '<header class="page-header"> \
+<link rel="stylesheet" href="default.css"> \
+<h1>CTA Benchmarks</h1> \
+Pages produced by the continuous integration and notebooks in \
+<a href="https://github.com/cta-observatory/cta-benchmarks"> cta-benchmarks</a> <br> <br> \
+<main> \
+List of benchmarks: \
+</main> \
+</header>'
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("directory")
@@ -30,7 +41,7 @@ def main():
     args = parser.parse_args()
     fnames = [fname for fname in sorted(os.listdir(args.directory))
               if fname not in EXCLUDED and fname.endswith('.html')]
-    header = (args.header if args.header else os.path.basename(args.directory))
+    header = (args.header if args.header else default_header)
     template = Template(INDEX_TEMPLATE).render(names=fnames, header=header)
     os.makedirs('docs', exist_ok=True)
     with open('docs/index.html', 'w') as file:
